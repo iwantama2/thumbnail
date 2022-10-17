@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Materia Tool | EL Creative Academy</title>
+    <meta charset='UTF-8'/><meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/><meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+    <link rel="stylesheet" href="materialize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google%20Sans:wght@400;700&display=swap"/>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center" style="font-size: 16px;">
+            Thumbnail Generator
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="containers">
+      <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s4"><a href="#test3">Thumbnail Tool</a></li>
+          </ul>
+        </div>
+        
+         
+        <div id="test3" class="col s12">
+          <div id="inputInput">
+            <div class="input-field">
+              <select id="bg-color" class="validate">
+                <option>Select Background</option>
+                <option>Material Red</option>
+                <option>Material Pink</option>
+                <option>Material Purple</option>
+                <option>Material Deep Purple</option>
+                <option>Material Indigo</option>
+                <option>Material Blue</option>
+                <option>Material Light Blue</option>
+                <option>Material Cyan</option>
+                <option>Material Teal</option>
+                <option>Material Green</option>
+                <option>Material Light Green</option>
+                <option>Material Lime</option>
+                <option>Material Yellow</option>
+                <option>Material Amber</option>
+                <option>Material Orange</option>
+                <option>Material Deep Orange</option>
+                <option>Material Brown</option>
+                <option>Material Grey</option>
+                <option>Material Blue Grey</option>
+              </select>
+            </div>
+
+            <div class="input-field">
+              <select id="bg-styles" class="validate">
+                <option disabled>Select Pattern</option>
+                <option value="sty1">Background 1</option>
+                <option value="sty2">Background 2</option>
+                <option value="sty3">Background 3</option>
+                <option value="sty4">Background 4</option>
+                <option value="sty5">Background 5</option>
+                <option value="sty6">Background 6</option>
+                <option value="sty7">Background 7</option>
+                <option value="sty8">Background 8</option>
+                <option value="sty9">Background 9</option>
+                <option value="sty10">Background 10</option>
+                <option value="sty11">Background 11</option>
+                <option value="sty12">Background 12</option>
+                <option value="sty13">Background 13</option>
+              </select>
+            </div>
+
+            <br />
+
+            <div class="input-field">
+              <input type="text" id="label1" class="validate" />
+              <label for="label1">Post Label</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" id="title1Input" class="validate" />
+              <label for="title1Input">Post Title</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" id="authorInput" class="validate" />
+              <label for="authorInput">Author Name</label>
+            </div>
+
+            <div class="input-field">
+              <input type="text" id="btitle1" class="validate" />
+              <label for="btitle1">Blog Title</label>
+            </div>
+          </div>
+
+          <div class="background" id="background">
+            <div class="content-container">
+              <div class="header-container">
+                <div class="blocks" id="blocks"></div>
+                <div class="author-name" id="categories">Post Label</div>
+              </div>
+              <div class="separate">
+                <div id="content-title1" class="content-title">Post Title</div>
+              </div>
+              <div class="footer-container">
+                <div class="author-name" id="author-name">@Author Name</div>
+                <div class="elc" id="elc">
+                  Siap Ngoding
+                  <div class="img-logo" style="display: none;">
+                    <img src="./images/logo.png" alt="logo" />
+                  </div>
+                </div>
+              </div>
+
+              <div id="content-container"></div>
+            </div>
+          </div>
+
+          <div class="btnnn">
+            <div id="download-images" class="waves-effect waves-light btn">
+              Download Image
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        Copyright &copy; -
+        <a
+          href="https://www.siappngoding.my.id/"
+          target="_blank"
+          alt="Siapngoding.my.id"
+        >
+          Siap Ngoding
+        </a>
+      </footer>
+    </div>
+
+    <script src="jquery-3.5.0.min.js"></script>
+    <script src="materialize.js"></script>
+    <script src="html2canvas.min.js"></script>
+    <script src="canvas2image.js"></script>
+    <script src="highligh.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+      var element = $('.content-container')
+      var getCanvas
+      $('#download-images').on('click', function () {
+        html2canvas(element, {
+          onrendered: function (canvas) {
+            getCanvas = canvas
+
+            Canvas2Image.saveAsJPEG(canvas, 900, 470)
+          },
+        })
+
+        console.log('Downloaded')
+      })
+    </script>
+  </body>
+</html>
